@@ -1,0 +1,774 @@
+@font-face {
+    font-family: "Inter";
+    src: url(/fonts/Inter/static/Inter_18pt-Regular.ttf);
+}
+
+@font-face {
+    font-family: "InterBold";
+    src: url(/fonts/Inter/static/Inter_18pt-Bold.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+}
+
+body {
+    padding: 20px;
+    overflow-y: hidden;
+}
+
+/* Updated Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative; /* Added for burger menu positioning */
+}
+
+.nav-left {
+    cursor: pointer;
+}
+
+.nav-left img {
+    height: 60px;
+}
+
+/* Add new burger menu styles */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it stays above the menu */
+}
+
+.burger-menu img {
+    width: 30px;
+    height: auto;
+}
+
+/* Update nav-middle styles */
+.nav-middle {
+    display: flex;
+    align-items: center;
+}
+
+.nav-middle a {
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+    font-size: 16px;
+    font-family: InterBold;
+    transition: color 0.3s ease;
+}
+
+.nav-middle a:hover {
+    color: #FB9905;
+}
+
+/* Add active state styles */
+.nav-middle a.active {
+    color: #FB9905;
+}
+
+/* Your existing button styles */
+button {
+    background: #FB9905;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: InterBold;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #D37F00;
+}
+
+/* Update media queries for mobile navigation */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-middle {
+        display: none; /* Hidden by default on mobile */
+        width: 100%;
+        flex-direction: column;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .nav-middle.show {
+        display: flex;
+    }
+
+    .nav-middle a {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-right {
+        display: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px 20px;
+        background-color: white;
+    }
+
+    .nav-right.show {
+        display: block;
+    }
+
+    .nav-right button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+button {
+    background: #FB9905;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: InterBold;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #D37F00;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    margin-top: 50px;
+    gap: 50px;
+    height: calc(100vh - 120px);
+}
+
+.left-content {
+    flex: 1;
+    max-width: 800px;
+}
+
+h1 {
+    color: #FB9905;
+    font-size: 72px;
+    margin-bottom: 15px;
+    font-family: InterBold;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    font-family: Inter;
+}
+
+.video-placeholder {
+    width: 100%;
+    max-height: 400px;
+}
+
+.right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100%;
+}
+
+.right-content img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    main {
+        margin-top: 30px;
+        gap: 30px;
+        height: auto;
+    }
+
+    .right-content {
+        display: none;
+    }
+
+    .left-content {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .video-placeholder {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 80px;
+    }
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-middle {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-middle a {
+        margin: 5px 0;
+    }
+
+    main {
+        margin-top: 20px;
+        gap: 20px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .video-placeholder {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .nav-left img {
+        height: 40px;
+    }
+
+    main {
+        margin-top: 15px;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .video-placeholder {
+        max-height: 200px;
+    }
+
+    button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .nav-middle a {
+        font-size: 14px;
+    }
+
+    .video-placeholder {
+        max-height: 180px;
+    }
+}
+
+/* News Page Styles */
+.news-main {
+    display: flex;
+    gap: 50px;
+    height: calc(100vh - 120px);
+    padding-right: 20px;
+    overflow-y: auto;
+}
+
+.news-content {
+    flex: 3;
+    padding-right: 30px;
+}
+
+.news-sidebar {
+    flex: 1;
+    min-width: 250px;
+}
+
+.news-item {
+    margin-bottom: 40px;
+}
+
+.news-item h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.date {
+    display: block;
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.news-item p {
+    margin-bottom: 20px;
+}
+
+.news-item hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 30px 0;
+}
+
+/* Search Box */
+.search-box input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Archive Section */
+.archive h2 {
+    color: #FB9905;
+    font-size: 48px;
+    font-family: InterBold;
+    margin-bottom: 20px;
+}
+
+.archive ul {
+    list-style: none;
+}
+
+.archive li {
+    margin-bottom: 15px;
+}
+
+.archive a {
+    color: #FB9905;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.archive a:hover {
+    color: #D37F00;
+}
+
+/* Responsive adjustments for news page */
+@media (max-width: 1024px) {
+    .news-main {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .news-sidebar {
+        order: -1;
+    }
+
+    .news-item h1 {
+        font-size: 36px;
+    }
+
+    .archive h2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .news-item h1 {
+        font-size: 32px;
+    }
+
+    .archive h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-item h1 {
+        font-size: 28px;
+    }
+
+    .archive h2 {
+        font-size: 28px;
+    }
+
+    .news-item {
+        margin-bottom: 30px;
+    }
+}
+
+/* Document List Styles */
+.document-list {
+    list-style: none;
+    padding: 0;
+}
+
+.document-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.document-list li:last-child {
+    border-bottom: none;
+}
+
+.document-link {
+    color: #FB9905;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: Inter;
+    display: block;
+}
+
+.document-link:hover {
+    color: #D37F00;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .document-link {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .document-link {
+        font-size: 16px;
+    }
+    
+    .document-list li {
+        padding: 8px 0;
+    }
+}
+
+/* Add active state for navigation */
+.nav-middle a.active {
+    color: #FB9905;
+}
+
+/* Keep the hover effect for non-active items */
+.nav-middle a:hover:not(.active) {
+    color: #FB9905;
+}
+
+/* Xplore pages specific styles */
+.right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.right-content img {
+    width: 100%;
+    max-width: 600px;  /* Increased from 400px to 600px */
+    height: auto;
+    object-fit: contain;
+}
+
+.photo-placeholder {
+    width: 100%;
+    max-width: 800px;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .right-content {
+        display: none;
+    }
+}
+
+.map-example {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    display: block;
+    object-fit: cover;
+}
+
+.geo-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Contact Us Styles */
+.contact-form {
+    max-width: 800px;
+    margin: 20px 0 20px 30px;
+    padding: 30px;
+    border: 2px solid #FB9905;
+    border-radius: 10px;
+    background-color: #fff;
+    position: relative;
+}
+
+.contact-form h1 {
+    margin-bottom: 20px;
+    color: #FB9905;
+    font-size: 36px;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #FB9905;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #FB9905;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    background-color: #FB9905;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #D37F00;
+}
+
+/* Address Styles */
+.address {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    left: 30px;
+}
+
+.address h2 {
+    color: #FB9905;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.address p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+/* Responsive adjustments for mobile and tablet */
+@media (max-width: 768px) {
+    .contact-form {
+        margin: 20px 0; /* Center the form without left margin */
+        width: 100%; /* Full width for mobile */
+    }
+
+    .address {
+        max-width: 100%; /* Full width for address */
+        margin: 20px 0; /* Add margin for spacing */
+        left: 0; /* Reset left positioning */
+    }
+}
+
+/* People Page Styles */
+main {
+    text-align: center; /* Center the main content */
+}
+
+h1 {
+    color: #FB9905; /* Match wireframe color */
+    font-size: 48px; /* Increased font size */
+    margin: 40px 0; /* Add margin for spacing */
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of team members */
+    justify-content: center; /* Center the team members */
+    gap: 30px; /* Increased space between team members */
+    padding: 20px; /* Add padding around the container */
+}
+
+.team-member {
+    width: 180px; /* Increased width for team members */
+    text-align: center; /* Center text under photos */
+}
+
+.team-photo {
+    width: 100%; /* Make the photo take full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the photo circular */
+    border: 2px solid #FB9905; /* Match wireframe color */
+}
+
+/* Team Grid Layout */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: auto;
+    overflow-y: visible;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: auto; /* Override existing width */
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid #FB9905;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Specific styles for team member text */
+.team-member h3 {
+    color: #FB9905;
+    margin: 0;
+    font-family: InterBold;
+    font-size: 18px;
+}
+
+.team-member p {
+    color: #666;
+    margin: 5px 0;
+    font-size: 16px;
+    margin-bottom: 0; /* Override existing margin */
+}
+
+/* Team page specific heading */
+.team-heading {
+    color: #FB9905;
+    font-size: 72px;
+    margin: 40px 0;
+    padding-left: 20px;
+    font-family: InterBold;
+    text-align: left;
+}
+
+/* Override main styles for team page */
+.team-page-main {
+    height: auto;
+    overflow-y: visible;
+    margin-top: 0;
+    padding: 0 20px;
+}
+
+/* Responsive Design for Team Grid */
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .team-heading {
+        font-size: 48px;
+        margin: 30px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .team-heading {
+        font-size: 36px;
+        margin: 20px 0;
+    }
+    
+    .team-photo {
+        width: 120px;
+        height: 120px;
+    }
+}
